@@ -190,6 +190,14 @@ model RuntimeConfiguration {
 model DevOpsAzureSku {
   @doc("The Azure SKU name of the machines in the pool.")
   name: string;
+
+  @doc("The drive letter for the NVMe striped volume on Windows (e.g., 'N'). Defaults to 'N' when not specified.")
+  @added(Microsoft.DevOpsInfrastructure.Versions.v2025_09_20)
+  windowsNvmeDrive?: string;
+
+  @doc("The mount path for the NVMe striped volume on Linux (e.g., '/mnt/azure_nvme_temp'). Defaults to '/mnt/azure_nvme_temp' when not specified.")
+  @added(Microsoft.DevOpsInfrastructure.Versions.v2025_09_20)
+  linuxNvmePath?: string;
 }
 
 @doc("The storage profile of the VMSS.")
